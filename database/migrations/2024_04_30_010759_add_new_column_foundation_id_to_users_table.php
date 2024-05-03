@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('foundation_id')
                 ->references('id')
                 ->on('foundations')
-                ->onDelete('cascade')
+                ->onDelete('set null')
                 ->onUpdate('cascade');
         });
     }
