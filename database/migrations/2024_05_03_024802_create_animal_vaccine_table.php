@@ -20,6 +20,24 @@ return new class extends Migration
             $table->unsignedBigInteger('animal_id');
             $table->unsignedBigInteger('vaccine_id');
             $table->unsignedBigInteger('veterinarian_id');
+
+            $table->foreign('animal_id')
+                ->references('id')
+                ->on('animals')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('vaccine_id')
+                ->references('id')
+                ->on('vaccines')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('veterinarian_id')
+                ->references('id')
+                ->on('veterinarians')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
