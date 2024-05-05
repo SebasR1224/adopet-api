@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'surname',
         'dni',
-        'birthdate',
+        'birth_date',
         'phone',
         'address',
         'username',
