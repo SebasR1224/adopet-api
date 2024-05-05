@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ReportAbandonedAnimal extends Model
 {
@@ -29,4 +30,13 @@ class ReportAbandonedAnimal extends Model
         'response_time',
         'foundation_id'
     ];
+
+    /**
+     * The animals that belong to the report abandoned animal.
+     */
+    public function animals(): BelongsToMany
+    {
+        return $this->belongsToMany(Animal::class)
+            ->withTimestamps();
+    }
 }

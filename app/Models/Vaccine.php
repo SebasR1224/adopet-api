@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Vaccine extends Model
 {
@@ -25,4 +26,13 @@ class Vaccine extends Model
         'contraindications',
         'dose'
     ];
+
+    /**
+     * The animals that belong to the vaccine.
+     */
+    public function animals(): BelongsToMany
+    {
+        return $this->belongsToMany(Animal::class)
+            ->using(AnimalVaccine::class);
+    }
 }

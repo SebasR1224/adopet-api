@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class MedicalProcedure extends Model
 {
@@ -21,4 +22,12 @@ class MedicalProcedure extends Model
         'observations',
         'animal_id'
     ];
+
+    /**
+     * Get the animal that owns the medical procedure.
+     */
+    public function animal(): BelongsTo
+    {
+        return $this->belongsTo(Animal::class);
+    }
 }

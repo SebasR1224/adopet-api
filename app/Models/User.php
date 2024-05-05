@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -51,5 +53,29 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     *  Get the foundation that owns the user.
+     */
+    public function foundation(): BelongsTo
+    {
+        return $this->belongsTo(Foundation::class);
+    }
+
+    /**
+     * Get the adoption requests for the user.
+     */
+    public function adoptionRequests(): HasMany
+    {
+        return $this->hasMany(AdoptionRequest::class);
+    }
+
+    /**
+     * Get the adoptions for the user.
+     */
+    public function adoptions(): HasMany
+    {
+        return $this->hasMany(Adoption::class);
     }
 }

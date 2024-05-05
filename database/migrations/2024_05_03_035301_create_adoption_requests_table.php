@@ -20,14 +20,14 @@ return new class extends Migration
             $table->integer('alert')->default(1);
             $table->timestamps();
 
-            $table->unsignedBigInteger('animal_id')->unique();
+            $table->unsignedBigInteger('animal_id');
             $table->foreign('animal_id')
                 ->references('id')
                 ->on('animals')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
