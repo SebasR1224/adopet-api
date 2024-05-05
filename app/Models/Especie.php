@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Especie extends Model
 {
@@ -15,4 +16,12 @@ class Especie extends Model
      * @var array<int, string>
      */
     protected $fillable = ['name'];
+
+    /**
+     * Get the races for the especie.
+     */
+    public function races(): HasMany
+    {
+        return $this->hasMany(Race::class);
+    }
 }
