@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Animal;
+use App\Models\Foundation;
 
 return [
     [
@@ -32,5 +33,15 @@ return [
         'type' => Animal::class,
         'code' => 'ADOPTED',
         'value' => 'Adopted'
+    ],
+    [
+        'type' => Foundation::class,
+        'code' => 'APPROVED',
+        'value' => 'Approved'
+    ],
+    [
+        'type' => Foundation::class,
+        'code' => 'PENDING_APPROVAL',
+        'value' => 'Pending Approval'
     ],
 ];
