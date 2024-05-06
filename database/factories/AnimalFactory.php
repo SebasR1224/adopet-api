@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Constants\Animal\AnimalStatus;
 use App\Models\Animal;
 use App\Models\Especie;
 use App\Models\Foundation;
@@ -24,6 +25,9 @@ class AnimalFactory extends Factory
         $especie = $especies->random();
 
         $status = Status::where('type', Animal::class)->get('code');
+        $selectedStatus = $status->random()->code;
+
+        $foundations = Foundation::all();
 
         return [
             'name' => fake()->name(),
@@ -34,8 +38,11 @@ class AnimalFactory extends Factory
             'especie' => $especie->name,
             'race' => $especie->races()->get()->random()->name,
             'weight' => fake()->randomFloat(),
-            'status' => $status->random()->code,
-            'gender' => fake()->randomElement(['MALE', 'FEMALE'])
+            'status' => $selectedStatus,
+            'gender' => fake()->randomElement(['MALE', 'FEMALE']),
+            'foundation_id' => $selectedStatus === AnimalStatus::CODE_RESCUED
+                ? $foundations->random()->id
+                : null
         ];
     }
 }
