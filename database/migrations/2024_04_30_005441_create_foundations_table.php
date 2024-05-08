@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('logo');
             $table->string('nit', 20);
             $table->text('description');
-            $table->string('email', 30)->unique();
+            $table->string('email', 100)->unique();
             $table->string('phone', 20);
             $table->string('web_site');
             $table->text('mission');
