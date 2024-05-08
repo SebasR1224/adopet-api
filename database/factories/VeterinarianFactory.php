@@ -17,7 +17,10 @@ class VeterinarianFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'dni' => fake()->numberBetween(10000000, 99999999),
+            'email' => fake()->unique()->email(),
+            'phone' => fake()->phoneNumber()
         ];
     }
 }

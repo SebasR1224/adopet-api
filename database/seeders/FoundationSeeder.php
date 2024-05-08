@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Foundation;
 use App\Models\LegalRepresentative;
+use App\Models\Veterinarian;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,7 +17,8 @@ class FoundationSeeder extends Seeder
     {
         Foundation::factory()
             ->count(10)
-            ->has(LegalRepresentative::factory()->count(rand(1,5)))
+            ->has(LegalRepresentative::factory()->count(3))
+            ->has(Veterinarian::factory()->count(5))
             ->create();
     }
 }
