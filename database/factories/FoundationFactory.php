@@ -22,7 +22,7 @@ class FoundationFactory extends Factory
         return [
             'name' => fake()->name(),
             'logo' => fake()->imageUrl(),
-            'nit' => fake()->numerify(),
+            'nit' => fake()->numberBetween(10000000, 99999999),
             'description' => fake()->text(),
             'email' => fake()->unique()->email(),
             'phone' => fake()->phoneNumber(),
