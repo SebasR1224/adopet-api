@@ -27,7 +27,7 @@ class AnimalFactory extends Factory
         $status = Status::where('type', Animal::class)->get('code');
         $selectedStatus = $status->random()->code;
 
-        $foundations = Foundation::all();
+        $foundations = Foundation::all('id');
 
         return [
             'name' => fake()->name(),
@@ -40,7 +40,7 @@ class AnimalFactory extends Factory
             'weight' => fake()->randomFloat(),
             'status' => $selectedStatus,
             'gender' => fake()->randomElement(['MALE', 'FEMALE']),
-            'foundation_id' => $selectedStatus === AnimalStatus::CODE_RESCUED
+            'foundation_id' => $selectedStatus !== AnimalStatus::CODE_ABANDONED
                 ? $foundations->random()->id
                 : null
         ];

@@ -2,6 +2,7 @@
 
 use App\Models\Animal;
 use App\Models\Foundation;
+use App\Models\ReportAbandonedAnimal;
 
 return [
     [
@@ -43,5 +44,45 @@ return [
         'type' => Foundation::class,
         'code' => 'PENDING_APPROVAL',
         'value' => 'Pending Approval'
+    ],
+    [
+        'type' => ReportAbandonedAnimal::class,
+        'code' => 'INITIAL_REPORT',
+        'value' => 'Initial Report'
+    ],
+    [
+        'type' => ReportAbandonedAnimal::class,
+        'code' => 'CASE_ANALYSIS',
+        'value' => 'Case Analysis'
+    ],
+    [
+        'type' => ReportAbandonedAnimal::class,
+        'code' => 'REJECT_REPORT',
+        'value' => 'Reject Report'
+    ],
+    [
+        'type' => ReportAbandonedAnimal::class,
+        'code' => 'TO_THE_RESCUE',
+        'value' => 'To The Rescue'
+    ],
+    [
+        'type' => ReportAbandonedAnimal::class,
+        'code' => 'CASE_ATTENDED',
+        'value' => 'Case Attended'
+    ],
+    [
+        'type' => 'App\Constants\AbandonmentStatus',
+        'code' => 'VERY_CRITICAL',
+        'value' => 'Very Critical'
+    ],
+    [
+        'type' => 'App\Constants\AbandonmentStatus',
+        'code' => 'CRITICAL',
+        'value' => 'Critical'
+    ],
+    [
+        'type' => 'App\Constants\AbandonmentStatus',
+        'code' => 'MILD',
+        'value' => 'Mild'
     ],
 ];

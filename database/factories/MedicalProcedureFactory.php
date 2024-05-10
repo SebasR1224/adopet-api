@@ -20,13 +20,12 @@ class MedicalProcedureFactory extends Factory
     public function definition(): array
     {
         $types = MedicalProcedureType::all('id');
-        $animals = Animal::where('status', AnimalStatus::CODE_IN_MEDICAL_PROCEDURE)->get('id');
+
         return [
             'title' => fake()->title(),
             'type' => $types->random()->id,
             'description' => fake()->text(),
-            'observations' => fake()->text(),
-            'animal_id' => $animals ? $animals->random()->id : null
+            'observations' => fake()->text()
         ];
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('abandonment_place');
             $table->string('abandonment_status', 100);
             $table->dateTime('abandonment_date')->nullable();
-            $table->dateTime('report_date');
+            $table->dateTime('report_date')->default(now());
             $table->integer('alert')->default(1);
             $table->dateTime('rescue_date')->nullable();
             $table->text('rescue_observations')->nullable();
