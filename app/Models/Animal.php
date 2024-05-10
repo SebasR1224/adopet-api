@@ -28,7 +28,8 @@ class Animal extends Model
         'weight',
         'status',
         'gender',
-        'foundation_id'
+        'foundation_id',
+        'report_abandoned_animal_id'
     ];
 
     /**
@@ -49,12 +50,11 @@ class Animal extends Model
     }
 
      /**
-     * The report abandoned animals that belong to the animal.
+     *  Get the report abandoned animal that owns the animal.
      */
-    public function reportAbandonedAnimals(): BelongsToMany
+    public function reportAbandonedAnimal(): BelongsTo
     {
-        return $this->belongsToMany(ReportAbandonedAnimal::class)
-            ->withTimestamps();
+        return $this->belongsTo(ReportAbandonedAnimal::class);
     }
 
     /**
