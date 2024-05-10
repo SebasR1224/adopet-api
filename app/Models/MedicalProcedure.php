@@ -17,10 +17,10 @@ class MedicalProcedure extends Model
      */
     protected $fillable = [
         'title',
-        'type',
         'description',
         'observations',
-        'animal_id'
+        'animal_id',
+        'type'
     ];
 
     /**
@@ -29,5 +29,13 @@ class MedicalProcedure extends Model
     public function animal(): BelongsTo
     {
         return $this->belongsTo(Animal::class);
+    }
+
+    /**
+     * Get the animal that owns the medical procedure.
+     */
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(MedicalProcedureType::class, 'type');
     }
 }
