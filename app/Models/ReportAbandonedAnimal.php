@@ -21,7 +21,7 @@ class ReportAbandonedAnimal extends Model
         'description',
         'image',
         'status',
-        'abandonment_place',
+        'abandonment_location',
         'abandonment_status',
         'abandonment_date',
         'report_date',

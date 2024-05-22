@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('status', 100);
-            $table->string('abandonment_place');
+            $table->string('abandonment_location');
             $table->string('abandonment_status', 100);
             $table->dateTime('abandonment_date')->nullable();
             $table->dateTime('report_date')->default(now());

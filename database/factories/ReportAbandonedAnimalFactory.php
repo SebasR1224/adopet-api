@@ -26,7 +26,7 @@ class ReportAbandonedAnimalFactory extends Factory
             'description' => fake()->text(),
             'image' => fake()->imageUrl(),
             'status' => $status->random()->code,
-            'abandonment_place' => fake()->address(),
+            'abandonment_location' => fake()->address(),
             'abandonment_status' => $abandonmentStatus->random()->code,
             'abandonment_date' => rand(0,1) ? fake()->date() : null,
         ];

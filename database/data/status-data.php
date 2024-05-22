@@ -71,17 +71,17 @@ return [
         'value' => 'Case Attended'
     ],
     [
-        'type' => 'App\Constants\AbandonmentStatus',
+        'type' => 'App\Constants\ReportAbandonedAnimal\AbandonmentStatus',
         'code' => 'VERY_CRITICAL',
         'value' => 'Very Critical'
     ],
     [
-        'type' => 'App\Constants\AbandonmentStatus',
+        'type' => 'App\Constants\ReportAbandonedAnimal\AbandonmentStatus',
         'code' => 'CRITICAL',
         'value' => 'Critical'
     ],
     [
-        'type' => 'App\Constants\AbandonmentStatus',
+        'type' => 'App\Constants\ReportAbandonedAnimal\AbandonmentStatus',
         'code' => 'MILD',
         'value' => 'Mild'
     ],

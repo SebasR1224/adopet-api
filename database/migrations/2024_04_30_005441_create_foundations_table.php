@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('mission');
             $table->text('vision')->nullable();
             $table->integer('ranking_score')->nullable();
-            $table->string('status', 50);
+            $table->string('status', 100);
             $table->timestamps();
         });
     }
