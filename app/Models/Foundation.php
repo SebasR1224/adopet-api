@@ -76,4 +76,12 @@ class Foundation extends Model
     {
         return $this->hasMany(Adoption::class);
     }
+
+    /**
+     * Get the report abandoned animals for the foundation.
+     */
+    public function reportAbandonedAnimals(): HasMany
+    {
+        return $this->hasMany(ReportAbandonedAnimal::class);
+    }
 }

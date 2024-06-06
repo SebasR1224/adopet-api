@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('especie', 100);
             $table->string('race', 100)->nullable();
             $table->float('weight')->nullable();
-            $table->string('status', 50);
+            $table->string('status', 100);
             $table->enum('gender', ['MALE', 'FEMALE']);
             $table->timestamps();
 

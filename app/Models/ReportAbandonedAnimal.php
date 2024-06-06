@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -21,7 +22,7 @@ class ReportAbandonedAnimal extends Model
         'description',
         'image',
         'status',
-        'abandonment_place',
+        'abandonment_location',
         'abandonment_status',
         'abandonment_date',
         'report_date',
@@ -29,7 +30,8 @@ class ReportAbandonedAnimal extends Model
         'rescue_date',
         'rescue_observations',
         'response_time',
-        'foundation_id'
+        'foundation_id',
+        'reporting_user_id'
     ];
 
     /**
@@ -38,5 +40,21 @@ class ReportAbandonedAnimal extends Model
     public function animals(): HasMany
     {
         return $this->hasMany(Animal::class);
+    }
+
+     /**
+     *  Get the foundation that owns the report abandoned animal.
+     */
+    public function foundation(): BelongsTo
+    {
+        return $this->belongsTo(Foundation::class);
+    }
+
+    /**
+     *  Get the reporting user that owns the report abandoned animal.
+     */
+    public function reportingUser(): BelongsTo
+    {
+        return $this->belongsTo(ReportingUser::class);
     }
 }

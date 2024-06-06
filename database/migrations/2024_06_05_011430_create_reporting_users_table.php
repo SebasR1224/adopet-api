@@ -11,19 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('foundations', function (Blueprint $table) {
+        Schema::create('reporting_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('logo');
-            $table->string('nit', 20);
-            $table->text('description');
+            $table->string('name', 50);
+            $table->string('surname', 50);
             $table->string('email', 100)->unique();
             $table->string('phone', 20);
-            $table->string('web_site');
-            $table->text('mission');
-            $table->text('vision')->nullable();
-            $table->integer('ranking_score')->nullable();
-            $table->string('status', 100);
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('foundations');
+        Schema::dropIfExists('reporting_users');
     }
 };
