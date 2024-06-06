@@ -53,6 +53,18 @@ class ValidationHelper
         'regex:' . self::REGEX_ONLY_WORDS
     ];
 
+    public const EMAIL_VALIDATION = [
+        'required',
+        'email',
+        'max:100'
+    ];
+
+    public const PHONE_VALIDATION = [
+        'required',
+        'string',
+        'max:20'
+    ];
+
     public static function getTextValidation(bool $isRequired = true): array
     {
         $validationRules = self::TEXT_VALIDATION;
@@ -67,10 +79,11 @@ class ValidationHelper
         return $validationRules;
     }
 
-    public static function getNameValidation(bool $isRequired = true): array
+    public static function getNameValidation(bool $isRequired = true, int $max = 100): array
     {
         $validationRules = self::NAME_VALIDATION;
         if (!$isRequired) $validationRules[0] = 'nullable';
+        $validationRules[2] = "max:$max";
         return $validationRules;
     }
 

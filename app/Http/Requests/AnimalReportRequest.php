@@ -43,7 +43,12 @@ class AnimalReportRequest extends FormRequest
             'animals.*.especie' => ValidationHelper::WORD_VALIDATION,
             'animals.*.race' => ValidationHelper::getWordValidation(false),
             'animals.*.weight' => 'nullable|numeric|between:0,1000',
-            'animals.*.gender' => 'required|in:MALE,FEMALE'
+            'animals.*.gender' => 'required|in:MALE,FEMALE',
+            'reporting_user' => 'required|array',
+            'reporting_user.name' => ValidationHelper::getNameValidation(true, 50),
+            'reporting_user.surname' => ValidationHelper::getNameValidation(true, 50),
+            'reporting_user.email' => ValidationHelper::EMAIL_VALIDATION,
+            'reporting_user.phone' => ValidationHelper::PHONE_VALIDATION
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\ReportAbandonedAnimal;
+use App\Models\ReportingUser;
 use App\Models\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,7 +20,7 @@ class ReportAbandonedAnimalFactory extends Factory
     public function definition(): array
     {
         $status = Status::where('type', ReportAbandonedAnimal::class)->get('code');
-        $abandonmentStatus = Status::where('type', 'App\Constants\AbandonmentStatus')->get('code');
+        $abandonmentStatus = Status::where('type', 'App\Constants\ReportAbandonedAnimal\AbandonmentStatus')->get('code');
 
         return [
             'title' => fake()->title(),
@@ -29,6 +30,7 @@ class ReportAbandonedAnimalFactory extends Factory
             'abandonment_location' => fake()->address(),
             'abandonment_status' => $abandonmentStatus->random()->code,
             'abandonment_date' => rand(0,1) ? fake()->date() : null,
+            'reporting_user_id' => ReportingUser::factory(),
         ];
     }
 }
